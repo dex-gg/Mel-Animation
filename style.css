@@ -1,27 +1,67 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a1f3d, #1e3a5f);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Corações flutuando no fundo */
+.background-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255, 100, 150, 0.6);
+    font-size: 1.8rem;
+    animation: floatUp linear infinite;
+    text-shadow: 0 0 8px rgba(255, 150, 200, 0.8);
+}
+
+@keyframes floatUp {
+    0%   { transform: translateY(100vh) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Texto principal */
 .love_word {
-    color: #ea8080;
-    font-size: 4rem;           /* aumentei um pouco pra ficar mais visível */
+    position: relative;
+    z-index: 2;
+    color: #66ccff;
+    font-size: 5.5rem;
     font-weight: bold;
-    text-shadow: 0 0 15px #ff99cc, 0 0 30px #ff3366;
+    text-shadow: 
+        0 0 20px #66ccff,
+        0 0 40px #ff99cc,
+        0 0 60px #ff66aa;
     white-space: nowrap;
-    display: inline-block;
-    animation: float-heart 3s infinite ease-in-out,
-               heartbeat 1.2s infinite ease-in-out;
+    animation: float-heart 4s infinite ease-in-out,
+               heartbeat 1.4s infinite ease-in-out;
 }
 
-/* Movimento suave horizontal (flutuando) */
+/* Flutuação suave */
 @keyframes float-heart {
-    0%   { transform: translateX(-40px) rotate(-8deg); }
-    50%  { transform: translateX(40px)  rotate(8deg); }
-    100% { transform: translateX(-40px) rotate(-8deg); }
+    0%   { transform: translateX(-35px) rotate(-6deg); }
+    50%  { transform: translateX(35px)  rotate(6deg); }
+    100% { transform: translateX(-35px) rotate(-6deg); }
 }
 
-/* Batimento de coração (pulse) */
+/* Batimento de coração */
 @keyframes heartbeat {
     0%    { transform: scale(1); }
-    15%   { transform: scale(1.25); }   /* primeiro batimento forte */
-    30%   { transform: scale(1); }
-    45%   { transform: scale(1.15); }   /* segundo batimento mais leve */
-    60%   { transform: scale(1); }
-    100%  { transform: scale(1); }      /* pausa natural */
+    12%   { transform: scale(1.18); }
+    25%   { transform: scale(1); }
+    40%   { transform: scale(1.12); }
+    55%   { transform: scale(1); }
+    100%  { transform: scale(1); }
 }
