@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Love You, Mell</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="ui">
-        <div class="love_word love_horizontal" style="--i: 1;">Love</div>
-    </div>
+
+    <!-- Corações de fundo -->
+    <div class="background-hearts" id="hearts"></div>
+
+    <!-- Texto principal -->
+    <div class="love_word">Love You, Mell</div>
+
+    <script>
+        // Criar corações flutuando
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 8 + 7) + 's'; // 7 a 15 segundos
+            heart.style.opacity = Math.random() * 0.6 + 0.4;
+            heart.style.fontSize = (Math.random() * 1.4 + 1.6) + 'rem';
+            
+            document.getElementById('hearts').appendChild(heart);
+
+            // Remover coração depois da animação
+            setTimeout(() => {
+                heart.remove();
+            }, 15000);
+        }
+
+        // Criar corações a cada 300ms
+        setInterval(createHeart, 300);
+        
+        // Criar alguns corações iniciais
+        for(let i = 0; i < 12; i++) {
+            setTimeout(createHeart, i * 200);
+        }
+    </script>
+
 </body>
 </html>
