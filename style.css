@@ -1,13 +1,26 @@
-#ui .love_word {
-    color: #ea80b0;
+/* style.css */
+
+.love_word {
+    color: #ea8080;
     font-size: 1.4rem;
-    transform: translateY(-100%) rotateZ (-30deg);
+    transform: translateY(-100%) rotateZ(-30deg);
     text-shadow: 0 0 10px #fff;
     letter-spacing: 2px;
     white-space: nowrap;
+    display: inline-block;
 }
-#ui .love_horizontal {
-    animation: horizontal 10000ms
-    infinite alternate ease-in-out;
+
+/* Animação horizontal */
+@keyframes horizontal {
+    0% {
+        transform: translateX(-50px) translateY(-100%) rotateZ(-30deg);
+    }
+    100% {
+        transform: translateX(50px) translateY(-100%) rotateZ(-30deg);
+    }
+}
+
+.love_horizontal {
+    animation: horizontal 1000ms infinite alternate ease-in-out;
     animation-delay: calc(var(--i) * -300ms);
 }
